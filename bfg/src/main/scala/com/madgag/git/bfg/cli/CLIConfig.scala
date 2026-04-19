@@ -189,7 +189,7 @@ case class CLIConfig(stripBiggestBlobs: Option[Int] = None,
     new LfsBlobConverter(lfsGlobExpr, repo)
   }
   
-  val blobExecModifier: Option[BlobExecModifier] = blobExec.map {
+  lazy val blobExecModifier: Option[BlobExecModifier] = blobExec.map {
     execCommand =>
       new BlobExecModifier {
         val command = execCommand._1
